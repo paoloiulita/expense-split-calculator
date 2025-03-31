@@ -61,18 +61,30 @@ const logCredit = (person: Person) => {
 		const creditIHaveWithThisPerson = creditor.creditors.get(person) || 0
 		const difference = debitIHaveWithThisPerson - creditIHaveWithThisPerson
 		if (difference > 0) {
-			console.log(`${person.name} owns ${chalk.white.bgBlue.bold(difference)} to ${chalk.white.bgRed.bold(creditor.name)}`)
+			console.log(`${person.name} deve dare ${chalk.bold(difference)} a ${chalk.bold(creditor.name)}`)
 		}
 	}
 }
 
+let totalSpent = 0
+
 for (const person of people) {
+	let totalForThisPerson = 0
 	for (const expense of expenses) {
 		if (expense.person !== person) {
 			setCreditForExpense(person, expense)
+		} else {
+			totalForThisPerson = totalForThisPerson + expense.amount
 		}
 	}
+	totalSpent = totalSpent + totalForThisPerson
+	console.log(`${person.name} ha speso in totale ${chalk.bold(totalForThisPerson)}`)
 }
+
+console.log(`------------`)
+console.log(`in totale sono stati spesi ${chalk.bold(totalSpent)}`)
+console.log(`ogni persona deve quindi alla fine aver speso ${chalk.bold(totalSpent / people.length)}`)
+console.log(`------------`)
 
 for (const person of people) {
 	logCredit(person)
