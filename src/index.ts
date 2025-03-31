@@ -58,9 +58,7 @@ const setCreditForExpense = (person: Person, expense: Expense) => {
 
 const logCredit = (person: Person) => {
 	for (const [creditor, debitIHaveWithThisPerson] of person.creditors) {
-		// console.log(`${person.name} owns ${debitIHaveWithThisPerson} to ${creditor.name}`)
 		const creditIHaveWithThisPerson = creditor.creditors.get(person) || 0
-		// console.log(`${person.name} has a credit of ${creditIHaveWithThisPerson} with ${creditor.name}`)
 		const difference = debitIHaveWithThisPerson - creditIHaveWithThisPerson
 		if (difference > 0) {
 			console.log(`${person.name} owns ${chalk.white.bgBlue.bold(difference)} to ${chalk.white.bgRed.bold(creditor.name)}`)
