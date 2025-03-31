@@ -50,7 +50,7 @@ expenses.push({ person: getPerson('carlo'),		amount: 47	})
 expenses.push({ person: getPerson('carlo'), 	amount: 71 	})
 
 const setCreditForExpense = (person: Person, expense: Expense) => {
-	const dividedAmount = Math.floor(expense.amount / people.length)
+	const dividedAmount = expense.amount / people.length
 	const amountDueToExpensePerson = person.creditors.get(expense.person) || 0
 	const newAmount = amountDueToExpensePerson + dividedAmount
 	person.creditors.set(expense.person, newAmount)
