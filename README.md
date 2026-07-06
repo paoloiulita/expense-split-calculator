@@ -1,39 +1,14 @@
 # Expense Split Calculator
 
-Simple CLI to compute how much each person owes after shared expenses.
+A modern React + TypeScript single-page application for managing shared expenses, calculating balances, and importing legacy text-based expense files.
 
-## Usage
+## Scripts
 
-Create a plain-text file with one expense per line in this format:
+- `pnpm dev` – start the local Vite development server
+- `pnpm test` – run Vitest tests
+- `pnpm lint` – run ESLint
+- `pnpm build` – create a production build
 
-```text
-name amount
-```
+## Deployment
 
-Example:
-
-```text
-paolo 10
-andrea 20
-carlo 30
-```
-
-Then run:
-
-```bash
-npm start -- expenses.txt
-```
-
-If you omit the file path, the CLI will look for `expenses.txt` in the project root.
-
-## Development
-
-```bash
-npm install
-npm start -- expenses.txt
-npm test
-```
-
-Notes:
-- Calculation logic is in `src/lib.ts` and exported as pure functions for testing.
-- CLI is `src/index.ts` and only runs when executed directly.
+The repository includes a GitHub Actions workflow for deploying the built app to GitHub Pages from the `main` branch.

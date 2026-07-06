@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-export type Expense = { person: string, amount: number }
+export type Expense = { person: string; amount: number }
 export type Balances = Record<string, Record<string, number>>
 
 export const formatMoney = (n: number) => n.toFixed(2)
@@ -13,7 +13,10 @@ export function computeTotals(expenses: Expense[]): Record<string, number> {
   return totals
 }
 
-export function computeBalances(names: string[], expenses: Expense[]): Balances {
+export function computeBalances(
+  names: string[],
+  expenses: Expense[],
+): Balances {
   const balances: any = {}
   for (const n of names) {
     balances[n] = {}
@@ -36,7 +39,10 @@ export function computeBalances(names: string[], expenses: Expense[]): Balances 
 
 export function parseExpensesFile(filePath: string): Expense[] {
   const content = fs.readFileSync(filePath, 'utf8')
-  const lines = content.split(/\r?\n/).map((line) => line.trim()).filter(Boolean)
+  const lines = content
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean)
 
   return lines.map((line) => {
     const [name, amount] = line.split(/\s+/)
