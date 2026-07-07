@@ -42,12 +42,6 @@ import {
 
 const STORAGE_KEY = 'expense-split-calculator-state-v1'
 
-const initialPeople: Person[] = [
-  { id: 'alice', name: 'Alice' },
-  { id: 'bob', name: 'Bob' },
-  { id: 'carol', name: 'Carol' },
-]
-
 const theme = createTheme({
   palette: {
     mode: 'dark',
@@ -60,13 +54,13 @@ const theme = createTheme({
 })
 
 function App() {
-  const [people, setPeople] = useState<Person[]>(initialPeople)
+  const [people, setPeople] = useState<Person[]>([])
   const [expenses, setExpenses] = useState<Expense[]>([])
   const [personName, setPersonName] = useState('')
   const [expenseForm, setExpenseForm] = useState({
     description: '',
     amount: '',
-    payer: initialPeople[0]?.name ?? '',
+    payer: '',
   })
   const [editingExpenseId, setEditingExpenseId] = useState<string | null>(null)
   const [importMode, setImportMode] = useState<'merge' | 'overwrite'>('merge')
