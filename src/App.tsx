@@ -296,7 +296,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Stack spacing={3}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
           <Paper sx={{ p: { xs: 3, md: 4 }, borderRadius: 3 }}>
             <Typography variant="h3" fontWeight={700} gutterBottom>
               Expense Split Calculator
@@ -590,7 +590,7 @@ function App() {
               </Paper>
             </Grid>
           </Grid>
-        </Stack>
+        </Box>
       </Container>
     </ThemeProvider>
   )
