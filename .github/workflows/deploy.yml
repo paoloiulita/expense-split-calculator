@@ -9,7 +9,6 @@ on:
       - '.prettierrc'
       - '.husky/**'
       - 'eslint.config.js'
-      - 'pnpm-workspace.yaml'
       - 'src/**/*.test.ts'
       - 'src/**/*.test.tsx'
       - 'src/test/**'
