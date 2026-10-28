@@ -11,4 +11,6 @@ A modern React + TypeScript single-page application for managing shared expenses
 
 ## Deployment
 
+The app is publicly available at [https://paoloiulita.github.io/expense-split-calculator/](https://paoloiulita.github.io/expense-split-calculator/).
+
 The repository includes a GitHub Actions workflow for deploying the built app to GitHub Pages from the `main` branch.
