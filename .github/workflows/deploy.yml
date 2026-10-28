@@ -3,6 +3,17 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '**/*.md'
+      - '.gitignore'
+      - '.prettierrc'
+      - '.husky/**'
+      - 'eslint.config.js'
+      - 'pnpm-workspace.yaml'
+      - 'src/**/*.test.ts'
+      - 'src/**/*.test.tsx'
+      - 'src/test/**'
+      - '*.tsbuildinfo'
   workflow_dispatch:
 
 permissions:
